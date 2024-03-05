@@ -1,0 +1,36 @@
+<div class="p-4">
+  <h2>Chatons à adopter</h2>
+  <div class="d-flex justify-content-around p-2 gap-2">
+    <div
+      *ngFor="let kitten of kittens"
+      class="card"
+      (mouseenter)="onMouseEnter(kitten)"
+      (mouseleave)="onMouseLeave(kitten)"
+    >
+      <img
+        style="height: 300px; width: 200px"
+        class="card-img"
+        src="{{ kitten.picture }}"
+        alt="{{ kitten.name }}"
+      />
+      <div
+        [ngClass]="{
+          visible: kitten.kittenInfo === 'visible',
+          hidden: kitten.kittenInfo === 'hidden'
+        }"
+        class="card-img-overlay d-flex flex-column justify-content-end bg-light-subtle"
+      >
+        <h3 class="card-title">{{ kitten.name }}</h3>
+        <span class="card-subtitle mb-2 text-body-secondary">{{
+          kitten.race
+        }}</span>
+        <span class="card-subtitle mb-2 text-body-secondary">{{
+          kitten.birthdate | date : "dd/MM/yyyy"
+        }}</span>
+        <button class="btn btn-primary" (click)="adoptKitten(kitten)">
+          adopter
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

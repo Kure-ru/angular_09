@@ -1,13 +1,21 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CreateKittenComponent } from './create-kitten/create-kitten.component';
+import { FormsModule } from '@angular/forms';
+import { ListKittenComponent } from './list-kitten/list-kitten.component';
+import { UserKittenComponent } from './user-kitten/user-kitten.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
+  imports: [
+    CreateKittenComponent,
+    ListKittenComponent,
+    UserKittenComponent,
+    FormsModule,
+  ],
 })
 export class AppComponent {
-  title = 'cats';
+  title = 'Kitten Story';
 }

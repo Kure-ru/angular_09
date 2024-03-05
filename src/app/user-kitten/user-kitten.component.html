@@ -1,0 +1,22 @@
+<div class="p-4">
+  <h2>Chatons adoptés</h2>
+  <div class="d-flex justify-content-around p-2 gap-2">
+    <div *ngFor="let kitten of adoptedKittens" class="card">
+      <img
+        style="height: 300px; width: 200px"
+        class="card-img-top"
+        src="{{ kitten.picture }}"
+        alt="{{ kitten.name }}"
+      />
+      <div class="card-body d-flex flex-column">
+        <h3 class="card-title">{{ kitten.name }}</h3>
+        <span class="card-subtitle mb-2 text-body-secondary">{{
+          kitten.race
+        }}</span>
+        <span class="card-subtitle mb-2 text-body-secondary">{{
+          kitten.birthdate | date : "dd/MM/yyyy"
+        }}</span>
+      </div>
+    </div>
+  </div>
+</div>
